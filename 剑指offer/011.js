@@ -7,6 +7,7 @@
 // 输出： 0
 
 /**
+ * @description 二分思想，如果中间值大于右边值，则最小值在右侧，小于中间值则在左侧，如果等于，即刻结束递归。
  * @param {number[]} numbers
  * @return {number}
  */
