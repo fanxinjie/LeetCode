@@ -11,6 +11,7 @@
  * @param {ListNode} headB
  * @return {ListNode}
  */
+// 双指针法，浪漫相遇 遍历完自己的节点后 交换位置继续遍历 最后二者的总步数是一样 相遇时即为所求第一个祖先节点
 var getIntersectionNode = function (headA, headB) {
   if (!headA || !headB) return null;
   let left = headA,
