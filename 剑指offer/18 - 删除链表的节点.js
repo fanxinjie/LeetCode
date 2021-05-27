@@ -33,15 +33,18 @@ var deleteNode = function (head, val) {
   let newNode = new ListNode();
   newNode = head;
 
+  console.log('head', head);
   // 如果下一个不为空 且 下一个的值不等于目标值 val，往下找，如果是目标值的话，则结束 while 循环
   while (newNode.next != null && newNode.next.val != val) {
     newNode = newNode.next;
+    console.log('head --->', head);
   }
 
   // 结束循环后 且 不为最后一个值，则表示为下一个 val 等于目标值， 则跳过下一个值。
   if (newNode.next !== null) {
     newNode.next = newNode.next.next;
+    console.log('head --->', head);
   }
 
-  return newNode;
+  return head;
 };
