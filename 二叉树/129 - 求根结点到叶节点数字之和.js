@@ -40,3 +40,25 @@ var sumNumbers = function (root) {
 
   return !resultArr.length ? 0 : resultArr.reduce((a, b) => a + b);
 };
+
+// 使用字符串
+function sumNumbers1(root) {
+  let tmp = '',
+    result = 0;
+
+  function DFS(root) {
+    if (!root) return;
+    tmp += root.val;
+
+    if (!root.left && !root.right) {
+      result = result + +tmp;
+    }
+
+    DFS(root.left);
+    DFS(root.right);
+    tmp = tmp.substr(0, tmp.length - 1);
+  }
+  DFS(root);
+
+  return result;
+}
