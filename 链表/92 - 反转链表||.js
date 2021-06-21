@@ -15,9 +15,23 @@
  * 输出：[1, 4, 3, 2, 5]
  */
 var reverseBetween = function (head, left, right) {
-    if(left == right){
-      return head;
-    }
+  let headNode = new ListNode(-1);
+  headNode.next = head;
 
+  let preNode = headNode;
+  for (let i = 0; i < left - 1; i++) {
+    preNode = preNode.next;
+  }
+  console.log('preNode', preNode)
 
+  let curNode = preNode.next;
+  for (let i = 0; i < right - left; i++) {
+    const nextNode = curNode.next;
+    curNode.next = nextNode.next;
+    nextNode.next = preNode.next;
+    preNode.next = nextNode;
+    console.log('preNode ----->', preNode)
+  }
+
+  return headNode.next;
 };
