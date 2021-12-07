@@ -31,3 +31,21 @@ var lowestCommonAncestor = function (root, p, q) {
   // 否则说明 p, q 和 left 相等
   return left;
 };
+
+
+let lowestCommonAncestor1 = (root, p, q) => {
+  if (root == null || root == p || root == q) {
+    return root;
+  }
+
+  let left = lowestCommonAncestor1(root.left, p, q);
+  let right = lowestCommonAncestor1(root.right, p, q);
+
+  if (left == null && right == null) return null;
+
+  if (left == null) return right;
+
+  if (right == null) return left;
+
+  return root;
+}

@@ -17,30 +17,26 @@
   [9,20],
   [15,7]
 ]
-
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
  */
-/**
- * @param {TreeNode} root
- * @return {number[][]}
- */
+// 广度优先，需要借助工具，也就是 [[node, level], [node.left, level + 1], [node.right, level + 1]]
 var levelOrder = function (root) {
   if (!root) return [];
 
   let queue = [
       [root, 0]
-    ],
+    ], // 初始化 第一层级为 root 跟节点，level 为0
     res = [];
+
+  // queue 用来存放树的层级节点
   while (queue.length) {
+    // 将最前面一个弹出，保持 queue 队列的头部为最新需要的数据
     let [node, level] = queue.shift();
 
+    // 如果没有这一层级的值，则初始化[]
     if (!res[level]) res[level] = [];
     res[level].push(node.val);
 
+    // 将左右两个子节点数据插入队尾
     node.left && queue.push([node.left, level + 1]);
     node.right && queue.push([node.right, level + 1]);
   }
