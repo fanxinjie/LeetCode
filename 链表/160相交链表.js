@@ -27,6 +27,5 @@ var getIntersectionNode = function (headA, headB) {
     left = left == null ? headB : left.next;
     right = right == null ? headA : right.next;
   }
-
   return left;
 };

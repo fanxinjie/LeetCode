@@ -9,9 +9,8 @@
  * @description 反转一个单链表。
  * @param {ListNode} head
  * @return {ListNode}
+ * @solution 利用每一次调换头一个、当前的next，最好画张图可以看得更清楚。
  */
-// 
-
 var reverseList = function (head) {
   let preNode = null,
     curNode = head;
@@ -19,7 +18,7 @@ var reverseList = function (head) {
     let nextNode = curNode.next;
     curNode.next = preNode;
     preNode = curNode;
-    curNode = nextNode
+    curNode = nextNode;
   }
   return preNode;
 };
